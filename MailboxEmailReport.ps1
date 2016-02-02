@@ -21,9 +21,9 @@ Write-host "Email Address to send report to (Enter to skip email Function):" -fo
 
 
 #Variables to configure
-$MailServer = "CHMail01"
+$MailServer = "SERVERNAME"
 $fileName = "/MailBox Reports/exchange2010Report"+( get-date ).ToString('MM.dd.yyyy')+".html"
-$ReportSender = "MicrosoftOutlook@lyco.org"
+$ReportSender = "MicrosoftOutlook@DOMAIN.org"
 $MailSubject = ("Exchange 2010 Mailbox Report for " + $MailServer + " - " + ( get-date ).ToString('MM/dd/yyyy'))
 
 
