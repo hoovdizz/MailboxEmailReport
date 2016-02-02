@@ -7,6 +7,7 @@
 # 01/07/2016 	Added status output to see what is being done. 
 # 02/02/2016 	Added Prompt to keep the window from auto closing when using the right click function. 
 # 02/02/2016 	Added notice that enter can skip email function
+# 02/02/2016	Added Yes or No to Show Individual boxes. (can save time for those with 500+ boxes on one server)
 
 
 
@@ -246,7 +247,24 @@ $alternateTableRowBackground = $alternateTableRowBackground + 1
 #TABLE Top10 end
 Add-Content $fileName "</table>"
 
+#Popup yes or no to Show Individual boxes
+			#Button Types  
+			# 
+			#Value  Description   
+			#0 Show OK button. 
+			#1 Show OK and Cancel buttons. 
+			#2 Show Abort, Retry, and Ignore buttons. 
+			#3 Show Yes, No, and Cancel buttons. 
+			#4 Show Yes and No buttons. 
+			#5 Show Retry and Cancel buttons. 
 
+			$a = new-object -comobject wscript.shell 
+			$intAnswer = $a.popup("Do you want to Show Individual boxes?",0,"Show Individual boxes",4) 
+			If ($intAnswer -eq 6) 
+			{ # open IF to yes or no
+			$a.popup("Individual boxes are being queried.")
+			
+			
 Add-Content $fileName "`n "
 Add-Content $fileName "`nIndividual MailBox (Including Disconnected)"
 
@@ -306,6 +324,13 @@ $alternateTableRowBackground = $alternateTableRowBackground + 1
 #TABLE all users end
 Add-Content $fileName "</table>"
 
+
+} # Close IF to yes or no
+				else { # open Else to yes or no
+						$a.popup("Individual list wont be shown.") 
+						
+					} # Close Else to yes or no
+					
 # BODY end
 Add-Content $fileName "</body>"
 
