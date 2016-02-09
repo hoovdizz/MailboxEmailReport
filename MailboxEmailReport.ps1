@@ -9,6 +9,7 @@
 # 02/02/2016 	Added notice that enter can skip email function
 # 02/02/2016	Added Yes or No to Show Individual boxes. (can save time for those with 500+ boxes on one server)
 # 02/03/2016	Added Mailbox Cleanup before report
+# 02/09/2016 	Added Error Action For Exchange Snap-in
 
 
 
@@ -16,7 +17,7 @@
 
 
 # add snapping to be-able to right click run
-add-pssnapin Microsoft.Exchange.Management.PowerShell.E2010
+add-pssnapin Microsoft.Exchange.Management.PowerShell.E2010  -ErrorAction SilentlyContinue 
 Write-host " Exchange 2010 MailBox Report" -foregroundcolor Green
 Write-host "Email Address to send report to (Enter to skip email Function):" -foregroundcolor magenta -nonewline
 			$ReportRecipient = read-host
