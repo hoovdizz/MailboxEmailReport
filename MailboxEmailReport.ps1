@@ -10,6 +10,7 @@
 # 02/02/2016	Added Yes or No to Show Individual boxes. (can save time for those with 500+ boxes on one server)
 # 02/03/2016	Added Mailbox Cleanup before report
 # 02/09/2016 	Added Error Action For Exchange Snap-in
+# 02/09/2016	Added File Name prompt at end
 
 
 
