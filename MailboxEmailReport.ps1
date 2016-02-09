@@ -28,7 +28,8 @@ Get-MailboxDatabase | Clean-MailboxDatabase
 
 #Variables to configure
 $MailServer = "SERVERNAME"
-$fileName = "/MailBox Reports/exchange2010Report"+( get-date ).ToString('MM.dd.yyyy')+".html"
+$ScriptPath = Split-Path -parent $MyInvocation.MyCommand.Definition
+$fileName = $ScriptPath +"/MailBox Reports/exchange2010Report"+( get-date ).ToString('MM.dd.yyyy')+".html"
 $ReportSender = "MicrosoftOutlook@DOMAIN.org"
 $MailSubject = ("Exchange 2010 Mailbox Report for " + $MailServer + " - " + ( get-date ).ToString('MM/dd/yyyy'))
 
